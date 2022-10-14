@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   get "/signup", to: "farmers#new"
   post "/signup", to: "farmers#create"
-  resources :farmers
+  resources :farmers do
+    resources :vegetables
+  end
 
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"

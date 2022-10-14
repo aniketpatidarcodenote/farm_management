@@ -1,3 +1,22 @@
 <h2><%= @farmer.name %></h2>
 <h2><%= @farmer.email %></h2>
+<ul>
+  <!-- <li><%= link_to "Edit", edit_farmer_path(@farmer) %></li> -->
+  <li><%= link_to "Destroy", farmer_path(@farmer), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+</ul>
+<h2>Vegetables</h2>
+<table>
+    <tr>
+      <th>Veg Name</th>
+      <th>Price/kg</th>
+      <th>Stock(in kg)</th>
+    </tr>
+</table>
+<%= render @farmer.vegetables %>
+
+<h2>Add a vegetable:</h2>
+<%= render 'vegetables/form' %>
 <h2><%= link_to "Logout", logout_path, method: "delete" %></h2>
